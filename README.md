@@ -5,9 +5,6 @@ If you have any questions, feel free to ask them in the groupchat.
 We'd love to help in any way we can! - Jacob&Teara
 
 ToDo:
-Part1:
--Client_functions.c
--Server_functions.c
 
 Part2:
 -Accept UDP
