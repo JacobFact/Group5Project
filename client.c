@@ -5,7 +5,8 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <stdio.h>
-void error(const char *);
+
+#include "client_functions.h"
 
 int main(int argc, char *argv[])
 {
@@ -54,11 +55,4 @@ int main(int argc, char *argv[])
    write(1,buffer,n);
    close(sockfd);
    return 0;
-}
-
-//Displays Error message if call fails
-void error(const char *msg)
-{
-    perror(msg);
-    exit(0);
 }
