@@ -1,10 +1,3 @@
-SHELL = /bin/sh
-
-FLAGS = -Wall -lsocket -o
-
-CC = gcc
-
-
 all:  client client_functions server server_functions
 
 
