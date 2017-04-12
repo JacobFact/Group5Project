@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <sys/un.h>
 #include <stdio.h>
-#include "server_files.h"
+#include "server_functions.h"
 int main(int argc, char *argv[])
 {
    int sockfd, newsockfd, servlen, n;
