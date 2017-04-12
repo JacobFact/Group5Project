@@ -4,6 +4,12 @@
 #include <stdlib.h>
 #include <sys/un.h>
 #include <stdio.h>
+
+/******** DOSTUFF() *********************
+ There is a separate instance of this function 
+ for each connection.  It handles all communication
+ once a connnection has been established.
+ *****************************************/
 void dostuff (int sock)
 {
    int n;
