@@ -18,14 +18,17 @@ int main(int argc, char *argv[])
    struct sockaddr_un  cli_addr, serv_addr;
    char buf[80];
 
+   //Create socket with validation
    if ((sockfd = socket(AF_UNIX,SOCK_STREAM,0)) < 0){
       error("Socket Creation Failed: Exiting...");
       return 0;
    }
+   
    bzero((char *) &serv_addr, sizeof(serv_addr));
    serv_addr.sun_family = AF_UNIX;
    strcpy(serv_addr.sun_path, argv[1]);
    servlen=strlen(serv_addr.sun_path) + sizeof(serv_addr.sun_family);
+   
    if(bind(sockfd,(struct sockaddr *)&serv_addr,servlen)<0){
       error("Binding Socket Failed: Exiting..."); 
       return 0;
@@ -64,12 +67,15 @@ void dostuff (int sock)
    int n;
    char buffer[256];
       
+   //read from client
    bzero(buffer,256);
    n = read(sock,buffer,255);
    if (n < 0){
       error("ERROR reading from socket");
    }
+   //Display the message
    printf("Here is the message: %s\n",buffer);
+   ///Reply
    n = write(sock,"I got your message",18);
    if (n < 0){
        error("ERROR writing to socket");
