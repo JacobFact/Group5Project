@@ -51,8 +51,4 @@ int main(int argc, char *argv[])
      return 0; /* we never get here */
 }
 
-/******** DOSTUFF() *********************
- There is a separate instance of this function 
- for each connection.  It handles all communication
- once a connnection has been established.
- *****************************************/
+
