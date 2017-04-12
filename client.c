@@ -32,14 +32,12 @@ int main(int argc, char *argv[])
    if ((sockfd = socket(AF_UNIX, SOCK_STREAM,0)) < 0){
       //Error message if socket call fails
       error("Socket Call Fail: Exiting...");
-      return 0;
    }
    
    //connect to server
    if (connect(sockfd, (struct sockaddr *) &serv_addr, servlen) < 0){
       //Error Message
       error("Connection Failed: Exiting...");
-      return 0;
    }
    
    //Message input
