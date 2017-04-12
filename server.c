@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
    //Create socket with validation
    if ((sockfd = socket(AF_UNIX,SOCK_STREAM,0)) < 0){
       error("Socket Creation Failed: Exiting...");
-      return 0;
    }
    
    bzero((char *) &serv_addr, sizeof(serv_addr));
@@ -31,7 +30,6 @@ int main(int argc, char *argv[])
    
    if(bind(sockfd,(struct sockaddr *)&serv_addr,servlen)<0){
       error("Binding Socket Failed: Exiting..."); 
-      return 0;
    }
 
    listen(sockfd,5);
