@@ -23,3 +23,12 @@ void dostuff (int sock)
        error("ERROR writing to socket");
    }
 }
+void *SigCatcher(int n)
+{
+  wait3(NULL,WNOHANG,NULL);
+}
+void error(const char *msg)
+{
+    perror(msg);
+    exit(0);
+}
