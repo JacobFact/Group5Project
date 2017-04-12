@@ -73,7 +73,7 @@ void dostuff (int sock)
    }
    //Display the message
    printf("Here is the message: %s\n",buffer);
-   ///Reply
+   //Reply
    n = write(sock,"I got your message",18);
    if (n < 0){
        error("ERROR writing to socket");
