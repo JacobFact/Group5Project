@@ -6,11 +6,12 @@
 #include <stdlib.h>
 #include <sys/un.h>
 #include <stdio.h>
-void error(const char *);
-void *SigCatcher(int n)
+#include "server_files.h"
+//void error(const char *);
+/*void *SigCatcher(int n)
 {
   wait3(NULL,WNOHANG,NULL);
-}
+}*/
 int main(int argc, char *argv[])
 {
    int sockfd, newsockfd, servlen, n;
@@ -60,7 +61,7 @@ int main(int argc, char *argv[])
  for each connection.  It handles all communication
  once a connnection has been established.
  *****************************************/
-void dostuff (int sock)
+/*void dostuff (int sock)
 {
    int n;
    char buffer[256];
@@ -84,4 +85,4 @@ void error(const char *msg)
 {
     perror(msg);
     exit(0);
-}
+}*/
