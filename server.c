@@ -17,7 +17,10 @@ void error(const char *msg)
     perror(msg);
     exit(1);
 }
-
+void *SigCatcher(int n)
+{
+  wait3(NULL,WNOHANG,NULL);
+}
 int main(int argc, char *argv[])
 {
      int sockfd, newsockfd, portno, pid;
@@ -41,6 +44,8 @@ int main(int argc, char *argv[])
               error("ERROR on binding");
      listen(sockfd,5);
      clilen = sizeof(cli_addr);
+     //Causes a nonblocking wait to prevent Zombie processes
+     signal(SIGCHLD,SigCatcher);
      while (1) {
          newsockfd = accept(sockfd, 
                (struct sockaddr *) &cli_addr, &clilen);
