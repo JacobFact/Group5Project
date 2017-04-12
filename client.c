@@ -6,7 +6,7 @@
 #include <sys/un.h>
 #include <stdio.h>
 void error(const char *);
-
+// Hey //
 int main(int argc, char *argv[])
 {
    //sockfd: stores socket system call values|servlen: stores the size of the address of the server|n: stores the return values of read() and write() calls
