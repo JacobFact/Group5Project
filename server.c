@@ -81,3 +81,9 @@ void dostuff (int sock)
        error("ERROR writing to socket");
    }
 }
+
+void error(const char *msg)
+{
+    perror(msg);
+    exit(0);
+}
