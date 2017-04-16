@@ -20,7 +20,10 @@ int main(int argc, char *argv[])
          exit(1);
      }
      sockfd = socket(AF_INET, SOCK_STREAM, 0);
+     sockfdudp = socket(AF_INET, SOCK_DGRAM, 0);
      if (sockfd < 0) 
+        error("ERROR opening socket");
+     if (sockfdudp < 0) 
         error("ERROR opening socket");
      bzero((char *) &serv_addr, sizeof(serv_addr));
      portno = atoi(argv[1]);
@@ -30,10 +33,18 @@ int main(int argc, char *argv[])
      if (bind(sockfd, (struct sockaddr *) &serv_addr,
               sizeof(serv_addr)) < 0) 
               error("ERROR on binding");
+     if (bind(sockfdudp, (struct sockaddr *) &serv_addr,
+              sizeof(serv_addr)) < 0) 
+              error("ERROR on binding");
      listen(sockfd,5);
      clilen = sizeof(cli_addr);
+     listen(sockfdudp,5);
+     clilen2 = sizeof(cli_addr);
      newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
+     newsockfdudp = accept(sockfdudp, (struct sockaddr *) &cli_addr, &clilen2);
      if (newsockfd < 0)
+      error("ERROR on accept");
+     if (newsockfdudp < 0)
       error("ERROR on accept");
      bzero(buffer,256);
      n = read(newsockfd,buffer,255);
@@ -48,6 +59,8 @@ int main(int argc, char *argv[])
      while (1) {
          newsockfd = accept(sockfd, 
                (struct sockaddr *) &cli_addr, &clilen);
+         newsockfdudp = accept(sockfdudp, 
+               (struct sockaddr *) &cli_addr, &clilen2);
          if (newsockfd < 0) 
              error("ERROR on accept");
          pid = fork();
@@ -58,9 +71,16 @@ int main(int argc, char *argv[])
              dostuff(newsockfd);
              exit(0);
          }
-         else close(newsockfd);
+         else {
+            close(sockfdudp);
+            dostuff(newsockfdudp);
+            exit(0);
+         }
+         close(newsockfd);
+         close(newsockfdudp);
      } /* end of while */
      close(sockfd);
+     close(sockfdudp);
      return 0; /* we never get here */
 }
 
