@@ -40,6 +40,34 @@ int main(int argc, char *argv[])
      clilen = sizeof(cli_addr);
      listen(sockfdudp,5);
      clilen2 = sizeof(cli_addr);
+   
+     //**//
+     fd_set readfds;
+     // clear the set
+     FD_ZERO(&readfds);
+     // add sockfd and sockfdupd to the set
+     FD_SET(sockfd, &readfds);
+     FD_SET(sockfdudp, &readfds);
+     // waits for either sockfd or sockfdudp to be read ready
+     int status = select(sockfdudp+1, &readfds, NULL, NULL, NULL);
+     // check for error
+     if(status == -1)
+         error("ERROR on selecting");
+     else
+     {
+         // sockfd is read ready
+         if(FD_ISSET(sockfd, &readfds))
+         {
+           // do tcp portion
+         }
+         // sockfdudp is read ready
+         if(FD_ISSET(sockfdudp, &readfds))
+         {
+           // do udp portion
+         }
+     }
+     //**//
+   
      newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
      newsockfdudp = accept(sockfdudp, (struct sockaddr *) &cli_addr, &clilen2);
      if (newsockfd < 0)
