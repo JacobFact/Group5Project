@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h> 
+#include "client_functions.h"
 
 int main(int argc, char *argv[])
 {
