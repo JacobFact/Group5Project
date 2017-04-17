@@ -1,5 +1,5 @@
 // server_functions.c
-// contains the common functions found in 
+// contains the common functions used in the server.c file
 
 #include <sys/types.h>
 #include <sys/socket.h>
