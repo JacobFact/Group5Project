@@ -1,3 +1,6 @@
+// server_functions.c
+// contains the common functions found in 
+
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -15,26 +18,44 @@ void dostuff (int sock)
    int n;
    char buffer[256];
       
-   //read from client
+   // read from client
    bzero(buffer,256);
    n = read(sock,buffer,255);
    if (n < 0){
       error("ERROR reading from socket");
    }
-   //Display the message
+   // display the message
    printf("Here is the message: %s\n",buffer);
-   ///Reply
+   /// reply
    n = write(sock,"I got your message",18);
    if (n < 0){
        error("ERROR writing to socket");
    }
 }
+
+// used to deal with zombie processes
 void *SigCatcher(int n)
 {
   wait3(NULL,WNOHANG,NULL);
 }
+
+//prints an error message
 void error(const char *msg)
 {
     perror(msg);
     exit(0);
+}
+
+// creates a socket of the appropriate type
+int makeSocket(int type)
+{
+    // creates a new socket
+    sockfd = socket(AF_INET, type, 0);
+        
+    // outputs an error if the socket creation failed
+    if (sockfd < 0) 
+        error("ERROR opening socket");
+    
+    // return the socket
+    return sockfd;
 }
