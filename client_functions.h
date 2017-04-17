@@ -3,3 +3,6 @@
 
 // declaration of the error function
 void error(const char *);
+
+//declaration of the makeSocket function
+int makeSocket(int);
