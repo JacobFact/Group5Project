@@ -1,5 +1,5 @@
 // client_functions.h
-// header file that contains the declarations of the files that are declared in the client_functions.c file
+// header file that contains the declarations of the functions implemented in client.c
 
 // declaration of the error function
 void error(const char *);
