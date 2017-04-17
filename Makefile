@@ -1,4 +1,4 @@
-all:  client client_functions server server_functions
+all:  client server
 
 
 client:			client.o client_functions.o
