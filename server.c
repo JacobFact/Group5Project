@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
      listen(sockfd,5);
      clilen = sizeof(cli_addr);
      listen(sockfd_udp,5);
-     clilen2 = sizeof(cli_addr);*/
+     clilen2 = sizeof(cli_addr);
         
      // clear the set
      FD_ZERO(&readfds);
@@ -175,6 +175,7 @@ int main(int argc, char *argv[])
      close(sockfd);
      close(sockfd_udp);
      close(newsockfd);
+     close(newsockfdudp);
         
      return 0;
 }
