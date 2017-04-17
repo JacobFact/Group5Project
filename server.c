@@ -138,6 +138,9 @@ int main(int argc, char *argv[])
             
             // continuous server that creates a child process
             while (1) {
+               newsockfdudp = accept(sockfdudp, (struct sockaddr *) &cli_addr, &clilen);
+               if (newsockfdudp < 0) 
+                  error("ERROR on accept");
                // creates a child process and outputs an error if it fails
                pid = fork();
                if (pid < 0)
