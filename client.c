@@ -143,17 +143,3 @@ int main(int argc, char *argv[])
     else
         error("ERROR: Must answer UDP or TCP");
 }
-
-// creates a socket of the type specified
-int makeSocket(int type)
-{
-    // creates a new socket
-    sockfd = socket(AF_INET, type, 0);
-        
-    // outputs an error if the socket creation failed
-    if (sockfd < 0) 
-        error("ERROR opening socket");
-    
-    // return the socket
-    return sockfd;
-}
