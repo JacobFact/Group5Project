@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <sys/un.h>
 #include <stdio.h>
+#include <sys/wait.h>
+#include "server_functions.h"
 
 /******** DOSTUFF() *********************
  There is a separate instance of this function 
