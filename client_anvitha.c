@@ -94,7 +94,8 @@ else if(answerstr==1)
 }
 else
 {
-error(“ERROR: Must answer UDP or TCP”);}
+error("ERROR: Must answer UDP or TCP");
+}
 return 0;
 }
 
