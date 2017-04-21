@@ -8,7 +8,7 @@
 #include <netdb.h> 
 #include "client_functions.h"
 
-void error(const char *);
+
 int main(int argc, char *argv[])
 {
 int answerstr=0;
@@ -97,8 +97,4 @@ else
 error(“ERROR: Must answer UDP or TCP”);}
 return 0;
 }
-void error(const char *msg)
-{
-    perror(msg);
-    exit(0);
-}
+
