@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
                error("ERROR writing to socket");
             
             // non-blocking wait for zombie processes
-            signal(SIGCHLD,SigCatcher);
+            //signal(SIGCHLD,SigCatcher);
             
             // continuous server that creates a child process
             while (1)
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
             fromlen = sizeof(struct sockaddr_in);
             
             // non-blocking wait for zombie processes
-            signal(SIGCHLD,SigCatcher);
+            //signal(SIGCHLD,SigCatcher);
             
             // continuous server that creates a child process
             while (1) {
