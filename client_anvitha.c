@@ -97,7 +97,6 @@ else
 error(“ERROR: Must answer UDP or TCP”);}
 return 0;
 }
-}
 void error(const char *msg)
 {
     perror(msg);
