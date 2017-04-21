@@ -4,19 +4,19 @@ all:  client server
 client:			client.o client_functions.o
 			gcc -o client client.o client_functions.o
 
-client.o:		client.c client_functions.h
+client.o:		
 			gcc -c client.c
 			
-client_functions.o:	client_functions.c
+client_functions.o:	client_functions.h
 			gcc -c client_functions.c
 
 server:			server.o server_functions.o
 			gcc -o server server.o server_functions.o
 
-server.o: 		server.c server_functions.h
+server.o: 		
 			gcc -c server.c
 			
-server_functions.o:	server_functions.c
+server_functions.o:	server_functions.h
 			gcc -c server_functions.c
 
 clean:  
