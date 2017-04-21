@@ -21,6 +21,7 @@ void error(const char *msg)
 // creates a socket of the type specified
 int makeSocket(int type)
 {
+    int sockfd;
     // creates a new socket
     sockfd = socket(AF_INET, type, 0);
         
