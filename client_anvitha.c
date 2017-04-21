@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 int answerstr=0;
 printf("UDP(1) or TCP(2): ");
 scanf("%d", &answerstr);
-printf("%s", answerstr);
 if(answerstr==2)
 {
 int sockfd, portno, n;
