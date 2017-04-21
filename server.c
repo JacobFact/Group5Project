@@ -13,8 +13,9 @@
 
 int main(int argc, char *argv[])
 {
-     int sockfd, newsockfd, portno, sockfd_udp, length, n;
+     int sockfd, newsockfd, portno, sockfd_udp, length, n, pid;
      socklen_t clilen;
+     socklen_t clilen2;
      char buffer[256];
      struct sockaddr_in serv_addr, cli_addr;
      socklen_t fromlen;
@@ -177,4 +178,5 @@ int main(int argc, char *argv[])
      close(newsockfd);
         
      return 0;
+}
 }
