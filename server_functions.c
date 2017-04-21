@@ -52,6 +52,7 @@ void error(const char *msg)
 int makeSocket(int type)
 {
     // creates a new socket
+    int sockfd;
     sockfd = socket(AF_INET, type, 0);
         
     // outputs an error if the socket creation failed
