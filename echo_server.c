@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
 
 
    int sockfd, newsockfd, portno, sockfd_udp, length, n;
-   int portno2 =0; // default value;
-   int portno3 = 0;
+   int portno2 =2017; // default value;
+   int portno3 = 2018;
    //sockfd and newsockfd are file descriptors, i.e. array subscripts into the file descriptor table . 
    // These these "sock variables" store the values returned by the socket system call and the accept system call.
    // the "portno variables"  stores the port number/s on which the server accepts connections
