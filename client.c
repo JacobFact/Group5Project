@@ -15,7 +15,9 @@
 int main(int argc, char *argv[])
 {
     // determine whether UDP or TCP is being used
+    string answerstr = "TCP"; // Precaution to avoid string storing a null value
     printf("UDP or TCP: ");
+    
     fgets(answerstr,3,stdin);
     
     // if TCP is being used
