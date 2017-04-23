@@ -335,6 +335,9 @@ FD_ZERO(&readfds);
      exit(1);
    }
    // Once a file has been successfully opened, you can read from it using fscanf() or write to it using fprintf();
+   Closing a file is very important, especially with output files. The reason is that output is often buffered. 
+   This means that when you tell C to write something out, e.g.,
+   fprintf(ofp, "Whatever!\n");
    fclose(ifp);
 fclose(ofp);
         
